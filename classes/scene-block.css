@@ -1,7 +1,7 @@
 
 .scene-block {
-    --size: 180vw;
+    --size: 166vw;
     width: var(--size);
     height: calc(var(--size) * 9 / 16);
-    /*background-color: yellow;*/
+    background-image:linear-gradient(#a6c7d7, #e3a676);
 }
