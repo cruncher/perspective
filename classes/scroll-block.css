@@ -5,6 +5,7 @@
     justify-items: center;
     width: 100vw;
     perspective: 100vw;
+    perspective-origin: 50% 50%;
     overflow-x: auto;
     overflow-y: hidden;
     background-color: orange;
