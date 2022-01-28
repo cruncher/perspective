@@ -32,15 +32,17 @@
         6
     </div>
 
-    <div style="max-width: 24em; margin-left: 23.5em; margin-top: 5em;">
+    <div style="max-width: 28em; margin-left: 27.5em; margin-top: 6.5em;">
         <h2>Perspective scroll test</h2>
         <p style="margin-top: 10em;">
         Dot 1 is at a <code>translateZ</code> of <code>0</code>, the z-depth of the screen,
         and scrolls with text content.
         </p>
         <p>
-        2, 3 and 4 are at positive a z depths, and 5 and 6 negative. The viewer is one screen width
-        in front of the screen (<code>perspective: 100vw;</code>).
+        2, 3 and 4 are at positive a z-depths, and 5 and 6 negative. You the viewer, you are two
+        screen-widths of z-depth in front of the screen (<code style="white-space: nowrap;">perspective: 200vw</code>)
+        and the closest object, 4, a quarter screen-width away (<code>translateZ(175vw)</code>).
+        Each of the others is twice as far away from you as the one in front.
         </p>
     </div>
 </div>

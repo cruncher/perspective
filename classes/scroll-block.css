@@ -4,7 +4,7 @@
     align-items: center;
     justify-items: center;
     width: 100vw;
-    perspective: 100vw;
+    perspective: 200vw;
     perspective-origin: 50% 50%;
     overflow-x: auto;
     overflow-y: hidden;
@@ -42,32 +42,32 @@
 }
 
 .object-2 {
-  transform: translate3d(-1vw, -1vw, 50vw);
+  transform: translate3d(-1vw, -1vw, 100vw);
   background-color: #ffd392;
   z-index: 5;
 }
 
 .object-3 {
-  transform: translate3d(-2vw, -2vw, 75vw);
+  transform: translate3d(-2vw, -2vw, 150vw);
   background-color: #ffe3b9;
   z-index: 6;
 }
 
 .object-4 {
-  transform: translate3d(-3vw, -3vw, 87.5vw);
+  transform: translate3d(-3vw, -3vw, 175vw);
   background-color: #fff0d8;
   z-index: 7;
 }
 
 .object-5 {
-  transform: translate3d(1vw, 1vw, -100vw);
+  transform: translate3d(1vw, 1vw, -200vw);
   color: white;
   background-color: #156899;
   z-index: 3;
 }
 
 .object-6 {
-  transform: translate3d(2vw, 2vw, -200vw);
+  transform: translate3d(2vw, 2vw, -600vw);
   color: white;
   background-color: #0a4568;
   z-index: 2;
