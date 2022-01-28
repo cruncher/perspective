@@ -1,0 +1,69 @@
+
+.scroll-block {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 100vw;
+    perspective: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: orange;
+}
+
+.scroll-block > * {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+
+
+
+
+
+.object-wrapper {
+    position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: none;
+  justify-content: center;
+}
+
+.object-block {
+    text-align: center;
+    line-height: 2vw;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+}
+
+.object-1 {
+  transform: none;
+  background-color: red;
+}
+
+.object-2 {
+  transform: translate3d(-1vw, -1vw, 50vw);
+  background-color: pink;
+}
+
+.object-3 {
+  transform: translate3d(-2vw, -2vw, 75vw);
+  background-color: pink;
+}
+
+.object-4 {
+  transform: translate3d(-3vw, -3vw, 87.5vw);
+  background-color: blue;
+}
+
+.object-5 {
+  transform: translate3d(1vw, 1vw, -100vw);
+  background-color: color(srgb 0.719 0.657 0.129);
+}
+
+.object-6 {
+  transform: translate3d(2vw, 2vw, -200vw);
+  background-color: color(srgb 0.423 0.292 0.593);
+}

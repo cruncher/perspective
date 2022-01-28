@@ -1,0 +1,7 @@
+
+.scene-block {
+    --size: 180vw;
+    width: var(--size);
+    height: calc(var(--size) * 9 / 16);
+    /*background-color: yellow;*/
+}
