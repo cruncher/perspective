@@ -34,31 +34,37 @@
   transform: none;
   color: white;
   background-color: #2285bf;
+  z-index: 3;
 }
 
 .object-2 {
   transform: translate3d(-1vw, -1vw, 50vw);
   background-color: #ffd392;
+  z-index: 4;
 }
 
 .object-3 {
   transform: translate3d(-2vw, -2vw, 75vw);
   background-color: #ffe3b9;
+  z-index: 5;
 }
 
 .object-4 {
   transform: translate3d(-3vw, -3vw, 87.5vw);
   background-color: #fff0d8;
+  z-index: 6;
 }
 
 .object-5 {
   transform: translate3d(1vw, 1vw, -100vw);
   color: white;
   background-color: #156899;
+  z-index: 2;
 }
 
 .object-6 {
   transform: translate3d(2vw, 2vw, -200vw);
   color: white;
   background-color: #0a4568;
+  z-index: 1;
 }
