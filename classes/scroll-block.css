@@ -1,8 +1,12 @@
 
 .scroll-block {
+    --size: 166vw;
+
     display: grid;
     align-items: center;
     justify-items: center;
+    grid-template-columns: var(--size);
+    grid-template-rows: calc(var(--size) * 9 / 16);
     width: 100vw;
     perspective: 200vw;
     perspective-origin: 50% 50%;
@@ -17,7 +21,15 @@
 }
 
 .scroll-block > .scene-block {
-    z-index: 1;
+    align-self: start;
+
+    /* Safari requires an object to fill the grid column or it refuses to
+       scroll beyond the rightmost content */
+    width: 100%;
+    /* Also, it must have height or it has no effect */
+    height: 1px;
+
+    background-color: transparent;
 }
 
 

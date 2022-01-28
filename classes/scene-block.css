@@ -1,6 +1,6 @@
 
 .scene-block {
-    --size: 166vw;
+    /*--size: 166vw;
     width: var(--size);
-    height: calc(var(--size) * 9 / 16);
+    height: calc(var(--size) * 9 / 16);*/
 }
