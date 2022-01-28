@@ -8,7 +8,7 @@
     perspective-origin: 50% 50%;
     overflow-x: auto;
     overflow-y: hidden;
-    background-color: orange;
+    background-image:linear-gradient(#a6c7d7, #e3a676);
 }
 
 .scroll-block > * {

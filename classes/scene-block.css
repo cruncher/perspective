@@ -3,5 +3,4 @@
     --size: 166vw;
     width: var(--size);
     height: calc(var(--size) * 9 / 16);
-    background-image:linear-gradient(#a6c7d7, #e3a676);
 }
