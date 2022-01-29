@@ -4,10 +4,12 @@ body {
     overflow: hidden;
 }
 
-body {
+body, p {
     margin: 0;
     padding: 0;
+}
 
+body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -16,4 +18,3 @@ code {
     color: #085a8a;
     font-family: FiraMono, Andale Mono, monospace;
 }
-

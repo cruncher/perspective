@@ -1,0 +1,228 @@
+
+.scroll-block {
+    /* Here we decide that the 'screen' we are looking at the 'scene' through is
+    40cm high. */
+    --mm: 0.25vh;
+    --cm: 2.5vh;
+    --m:  250vh;
+    --km: 250000vh;
+
+    /* And we're sitting 1m in front of it. */
+    --distance: 1;
+    perspective: 250vh;
+    perspective-origin: 50% 50%;
+
+    /* Then we set up a grid to render a 16:9 cell that always covers the screen. */
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: calc(100vh * 16 / 9);
+    grid-template-rows: 100vh;
+
+    /* And we make it scroll. */
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* Horizon */
+    color: white;
+    background-image: linear-gradient(#0e1334, #3b5d7c 50%, #665659 51.5%, #481a12);
+    background-image: linear-gradient(#6b9ebb, #182836 50%, #282223 51.5%, #7a3e27);
+}
+
+.scroll-block > * {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.scroll-block > .scene-block {
+    align-self: start;
+
+    /* Safari requires an object to fill the grid column or it refuses to
+       scroll beyond the position of the rightmost content */
+    width: 100%;
+    /* Also, it must have height or it has no effect */
+    height: 1px;
+
+    background-color: transparent;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .scroll-block {
+        /* Now we decide that the screen is 71.1111cm wide (40cm * 16:9). */
+        --mm: 0.140625vw;
+        --cm: 1.40625vw;
+        --m:  140.625vw;
+        --km: 140625vw;
+
+        /* And we overflow up and down */
+        grid-template-columns: 100vw;
+        grid-template-rows: calc(100vw * 9 / 16);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+/**
+.0cm, .10cm, .20cm ...
+
+Enough z-index for a range of 100km in mm.
+*/
+
+.\-100cm {
+    transform: translate3d(0, 0, calc(-100 * var(--cm)));
+    z-index: calc(-100 * 10 + 100000000);
+}
+
+.\-80cm {
+    transform: translate3d(0, 0, calc(-80 * var(--cm)));
+    z-index: calc(-80 * 10 + 100000000);
+}
+
+.\-60cm {
+    transform: translate3d(0, 0, calc(-60 * var(--cm)));
+    z-index: calc(-60 * 10 + 100000000);
+}
+
+.\-50cm {
+    transform: translate3d(0, 0, calc(-50 * var(--cm)));
+    z-index: calc(-50 * 10 + 100000000);
+}
+
+.\-40cm {
+    transform: translate3d(0, 0, calc(-40 * var(--cm)));
+    z-index: calc(-40 * 10 + 100000000);
+}
+
+.\-30cm {
+    transform: translate3d(0, 0, calc(-30 * var(--cm)));
+    z-index: calc(-30 * 10 + 100000000);
+}
+
+.\-20cm {
+    transform: translate3d(0, 0, calc(-20 * var(--cm)));
+    z-index: calc(-20 * 10 + 100000000);
+}
+
+.\-10cm {
+    transform: translate3d(0, 0, calc(-10 * var(--cm)));
+    z-index: calc(-10 * 10 + 100000000);
+}
+
+.\30 cm {
+    transform: translate3d(0, 0, calc(0 * var(--cm)));
+    z-index: calc(0 * 10 + 100000000);
+}
+
+.\31 0cm {
+    transform: translate3d(0, 0, calc(10 * var(--cm)));
+    z-index: calc(10 * 10 + 100000000);
+}
+
+.\32 0cm {
+    transform: translate3d(0, 0, calc(20 * var(--cm)));
+    z-index: calc(20 * 10 + 100000000);
+}
+
+.\33 0cm {
+    transform: translate3d(0, 0, calc(30 * var(--cm)));
+    z-index: calc(30 * 10 + 100000000);
+}
+
+.\34 0cm {
+    transform: translate3d(0, 0, calc(40 * var(--cm)));
+    z-index: calc(40 * 10 + 100000000);
+}
+
+.\35 0cm {
+    transform: translate3d(0, 0, calc(50 * var(--cm)));
+    z-index: calc(50 * 10 + 100000000);
+}
+
+.\36 0cm {
+    transform: translate3d(0, 0, calc(60 * var(--cm)));
+    z-index: calc(60 * 10 + 100000000);
+}
+
+.\38 0cm {
+    transform: translate3d(0, 0, calc(80 * var(--cm)));
+    z-index: calc(80 * 10 + 100000000);
+}
+
+.\31 00cm {
+    transform: translate3d(0, 0, calc(100 * var(--cm)));
+    z-index: calc(100 * 10 + 100000000);
+}
+
+
+/**
+.0m, .1m, .2m, .4m, ... .100m
+
+Enough z-index for a range of 100km in mm.
+*/
+
+.\-100m {
+    transform: translate3d(0, 0, calc(-10000 * var(--cm)));
+    z-index: calc(-100 * 1000 + 100000000);
+}
+
+.\-80m {
+    transform: translate3d(0, 0, calc(-80 * var(--m)));
+    z-index: calc(-80 * 1000 + 100000000);
+}
+
+.\-60m {
+    transform: translate3d(0, 0, calc(-60 * var(--m)));
+    z-index: calc(-60 * 1000 + 100000000);
+}
+
+.\-40m {
+    transform: translate3d(0, 0, calc(-40 * var(--m)));
+    z-index: calc(-40 * 1000 + 100000000);
+}
+
+.\-20m {
+    transform: translate3d(0, 0, calc(-20 * var(--m)));
+    z-index: calc(-20 * 1000 + 100000000);
+}
+
+.\-10m {
+    transform: translate3d(0, 0, calc(-10 * var(--m)));
+    z-index: calc(-10 * 1000 + 100000000);
+}
+
+.\-8m {
+    transform: translate3d(0, 0, calc(-8 * var(--m)));
+    z-index: calc(-8 * 1000 + 100000000);
+}
+
+.\-6m {
+    transform: translate3d(0, 0, calc(-6 * var(--m)));
+    z-index: calc(-6 * 1000 + 100000000);
+}
+
+.\-4m {
+    transform: translate3d(0, 0, calc(-4 * var(--m)));
+    z-index: calc(-4 * 1000 + 100000000);
+}
+
+.\-2m {
+    transform: translate3d(0, 0, calc(-2 * var(--m)));
+    z-index: calc(-2 * 1000 + 100000000);
+}
+
+.\-1m {
+    transform: translate3d(0, 0, calc(-1 * var(--m)));
+    z-index: calc(-1 * 1000 + 100000000);
+}
+
+.\30 m {
+    transform: translate3d(0, 0, calc(0 * var(--m)));
+    z-index: calc(-1 * 1000 + 100000000);
+}
+
+.\31 m {
+    transform: translate3d(0, 0, calc(1 * var(--m)));
+    z-index: calc(100 * 1000 + 100000000);
+}
