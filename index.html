@@ -32,7 +32,7 @@
         6
     </div>
 
-    <div style="max-width: 28em; margin-left: 27.5em; margin-top: 6.5em;">
+    <div style="max-width: 20%; margin-left: 20%; margin-top: 6.5em;">
         <h2>Perspective scroll test</h2>
         <p style="margin-top: 10em;">
         Dot 1 is at a <code>translateZ</code> of <code>0</code>, the z-depth of the screen,
@@ -43,6 +43,27 @@
         screen-widths of z-depth in front of the screen (<code style="white-space: nowrap;">perspective: 200vw</code>)
         and the closest object, 4, a quarter screen-width away (<code>translateZ(175vw)</code>).
         Each of the others is twice as far away from you as the one in front.
+        </p>
+    </div>
+
+    <img class="stack-10" src="images/stack-button/5.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-9"  src="images/stack-button/4.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-8"  src="images/stack-button/3.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-7"  src="images/stack-button/2.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-6"  src="images/stack-button/1.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-5"  src="images/stack-button/2.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-4"  src="images/stack-button/3.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-3"  src="images/stack-button/4.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-2"  src="images/stack-button/5.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <img class="stack-1"  src="images/stack-button/6.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+
+    <div style="width: 20%; justify-self: end; margin-right: 5%; margin-top: 6em;">
+        <p style="margin-top: 10em;">
+        In Safari hires images seem to render better than HTML at higher z-depths.
+        </p>
+        <p>
+        The objects in this stack are all equidistant. And it appears we get to
+        see images outside of the elastic scroll boundaries. Good.
         </p>
     </div>
 </div>

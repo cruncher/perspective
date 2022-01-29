@@ -5,14 +5,15 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: var(--size);
-    grid-template-rows: calc(var(--size) * 9 / 16);
+    grid-template-columns: calc(100vh * 16 / 9);
+    grid-template-rows: 100vh;
     width: 100vw;
+    height: 100vh;
     perspective: 200vw;
     perspective-origin: 50% 50%;
     overflow-x: auto;
     overflow-y: hidden;
-    background-image:linear-gradient(#a6c7d7, #e3a676);
+    background-image: linear-gradient(#a6c7d7, #bbbcb7 50%, #c7b5a2 51.5%, #b56f38);
 }
 
 .scroll-block > * {
@@ -30,6 +31,16 @@
     height: 1px;
 
     background-color: transparent;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .scroll-block {
+        /*background: red;*/
+        grid-template-columns: 100vw;
+        grid-template-rows: calc(100vw * 9 / 16);
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
 
@@ -83,4 +94,53 @@
   color: white;
   background-color: #0a4568;
   z-index: 2;
+}
+
+.stack-1 {
+    transform: translate3d(0, 0, 140vw);
+    z-index: 100000175;
+}
+
+.stack-2 {
+    transform: translate3d(0, 0, 120vw);
+    z-index: 100000150;
+}
+
+.stack-3 {
+    transform: translate3d(0, 0, 100vw);
+    z-index: 100000125;
+}
+
+.stack-4 {
+    transform: translate3d(0, 0, 80vw);
+    z-index: 100000100;
+}
+.stack-5 {
+    transform: translate3d(0, 0, 60vw);
+    z-index: 100000075;
+}
+
+.stack-6 {
+    transform: translate3d(0, 0, 40vw);
+    z-index: 100000050;
+}
+
+.stack-7 {
+    transform: translate3d(0, 0, 20vw);
+    z-index: 100000025;
+}
+
+.stack-8 {
+    transform: translate3d(0, 0, 0vw);
+    z-index: 100000000;
+}
+
+.stack-9 {
+    transform: translate3d(0, 0, -20vw);
+    z-index: 99999980;
+}
+
+.stack-10 {
+    transform: translate3d(0, 0, -40vw);
+    z-index: 99999960;
 }
