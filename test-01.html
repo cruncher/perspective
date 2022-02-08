@@ -1,69 +1,53 @@
 
 <link rel="stylesheet" href="classes/body.css" />
-<link rel="stylesheet" href="classes/scroll-block.css" />
-<link rel="stylesheet" href="classes/scene-block.css" />
+<link rel="stylesheet" href="classes/metric.css" />
+
+<style>
+.pill-img {
+    width: calc(1.2 * var(--cm));
+    height: auto;
+}
+</style>
 
 <div class="scroll-block block">
     <div class="scene-block block">
 
     </div>
 
-    <div class="object-block block object-1">
-        1
-    </div>
+    <img class="pill-img -30cm" src="images/stack-button/1.png" />
+    <img class="pill-img -20cm" src="images/stack-button/1.png" />
+    <img class="pill-img -10cm" src="images/stack-button/2.png" />
+    <img class="pill-img 0cm"   src="images/stack-button/2.png" />
+    <img class="pill-img 10cm"  src="images/stack-button/3.png" />
+    <img class="pill-img 20cm"  src="images/stack-button/3.png" />
+    <img class="pill-img 30cm"  src="images/stack-button/4.png" />
+    <img class="pill-img 40cm"  src="images/stack-button/4.png" />
+    <img class="pill-img 50cm"  src="images/stack-button/5.png" />
+    <img class="pill-img 60cm"  src="images/stack-button/6.png" />
 
-    <div class="object-block block object-2">
-        2
-    </div>
-
-    <div class="object-block block object-3">
-        3
-    </div>
-
-    <div class="object-block block object-4">
-        4
-    </div>
-
-    <div class="object-block block object-5">
-        5
-    </div>
-
-    <div class="object-block block object-6">
-        6
-    </div>
-
-    <div style="max-width: 20%; margin-left: 20%; margin-top: 6.5em;">
-        <h2>Perspective scroll test <small>(<a href="metric.html">next test</a>)</small></h2>
-        <p style="margin-top: 10em;">
-        Dot 1 is at a <code>translateZ</code> of <code>0</code>, the z-depth of the screen,
-        and scrolls with text content.
-        </p>
+    <div style="width: 20%; margin-left: 20%; padding-top: 4em; margin-top: 10em; border-left: 1px solid white; padding-left: 0.5em; padding-bottom: 0;">
         <p>
-        2, 3 and 4 are at positive a z-depths, and 5 and 6 negative. You the viewer, you are two
-        screen-widths of z-depth in front of the screen (<code style="white-space: nowrap;">perspective: 200vw</code>)
-        and the closest object, 4, a quarter screen-width away (<code>translateZ(175vw)</code>).
-        Each of the others is twice as far away from you as the one in front.
+        These pills are alledgedly 1.2cm diameter, 10cm apart, where the screen is assumed
+        to be 40cm high and you are 1m in front of it.
         </p>
     </div>
 
-    <img class="stack-10" src="images/stack-button/5.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-9"  src="images/stack-button/4.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-8"  src="images/stack-button/3.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-7"  src="images/stack-button/2.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-6"  src="images/stack-button/1.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-5"  src="images/stack-button/2.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-4"  src="images/stack-button/3.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-3"  src="images/stack-button/4.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-2"  src="images/stack-button/5.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
-    <img class="stack-1"  src="images/stack-button/6.png" width="24" height="24" style="justify-self: end; margin-right: 24%;" />
+    <!-- Chrome doesnt like svg or img SVGs. Firefox scrolls smoother with SVG
+         as img. -->
 
-    <div style="width: 20%; justify-self: end; margin-right: 5%; margin-top: 6em;">
-        <p style="margin-top: 10em;">
-        In Safari hires images seem to render better than HTML at higher z-depths.
-        </p>
+    <!--svg class="-100m" viewbox="0 0 20 20" style="width: calc(10 * var(--m));">
+        <path d="M 0,11 L 6,11.8 L 20,11 L 20,2 L 6,0.4 L 0,2 Z" fill="#171f26" />
+    </svg-->
+
+    <img src="images/building.svg" class="-100m" style="width: calc(10 * var(--m));" />
+
+    <div class="-80m" style="width: calc(10 * var(--m)); margin-right: calc(10 * var(--m)); font-size: calc(0.5 * var(--m)); padding-bottom: 4em; margin-bottom: 20em; border-right: 0.0625em solid white; padding-right: 0.5em; padding-bottom: 4em;">
         <p>
-        The objects in this stack are all equidistant. And it appears we get to
-        see images outside of the elastic scroll boundaries. Good.
+        This building is 10m wide and 100m away. Chrome doesn't like rendering
+        the transformed SVG very much. Safari overscrolls, as if the svg size
+        had not been scaled down. FF does ok.
         </p>
     </div>
+
+    <p class="-100m" style="color: #413d3b; font-size: var(--m); font-weight: 700; margin-left: calc(18 * var(--m)); white-space: nowrap; margin-top: calc(0.333 * var(--m));">font-size: 1m</p>
 </div>
