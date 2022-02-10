@@ -1,0 +1,118 @@
+
+<link rel="stylesheet" href="classes/bo dy.css" />
+<link rel="stylesheet" href="classes/metric.css" />
+
+<style>
+:root,
+body {
+    overflow: auto;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    grid-auto-rows: 20vw;
+    gap: 1rem;
+    margin: 1rem;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+img {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.view-block {
+    /* z distance from viewer to screen */
+    --perspective: 250vh;
+
+    overflow: auto;
+    perspective: var(--perspective);
+    perspective-origin: 100% 100%;
+
+    /* Temp */
+    background-color: rgba(0,0,0,0.1);
+}
+
+.view-block > .z-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.z-layer {
+    width: 100%;
+    height: 100%;
+    transform-origin: 0% 0%;
+    transform:
+        translate3d(
+            calc(100%               * (1 - var(--distance))),
+            calc(100%               * (1 - var(--distance))),
+            calc(var(--perspective) * (1 - var(--distance)))
+        )
+        scale3d(
+            var(--distance),
+            var(--distance),
+            1
+        );
+
+    /* Temp */
+    background-color: rgba(0,0,0,0.1);
+}
+</style>
+
+
+
+<h2 style="grid-column: 1 / span 4;">Drops</h2>
+
+<div class="view-block block" style="perspective: 100vw;">
+    <img src="images/stack-button/1.png" class="z-layer" style="width: 100%; transform: translate3d(-700%, -700%, -700vw) scale3d(8, 8, 1);" />
+</div>
+
+<div class="view-block block" style="perspective: 100vw;">
+    <img src="images/stack-button/1.png" class="z-layer" style="width: 100%; transform: translate3d(-300%, -300%, -300vw) scale3d(4, 4, 1);" />
+</div>
+
+<div class="view-block block" style="perspective: 100vw;">
+    <img src="images/stack-button/1.png" class="z-layer" style="width: 100%; transform: translate3d(-100%, -100%, -100vw) scale3d(2, 2, 1);" />
+</div>
+
+<div class="view-block block" style="perspective: 100vw;">
+    <img src="images/stack-button/1.png" class="z-layer" style="width: 100%; transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) translate3d(-0%, -0%, 0);" />
+</div>
+
+<div class="view-block block" style="perspective: 100vw;">
+    <img src="images/stack-button/1.png" class="z-layer" style="width: 100%; transform: translate3d(50%, 50%, 50vw) scale3d(0.5, 0.5, 1);" />
+</div>
+
+<div class="view-block block" style="perspective: 100vw;">
+    <img src="images/stack-button/1.png" class="z-layer" style="width: 100%; transform: translate3d(75%, 75%, 75vw) scale3d(0.25, 0.25, 1);" />
+</div>
+
+
+
+<h2 style="grid-column: 1 / span 4;">Drops</h2>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 8;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 4;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 2;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 1;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 0.50;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 0.25;" />
+</div>

@@ -1,0 +1,341 @@
+
+<link rel="stylesheet" href="classes/bo dy.css" />
+<link rel="stylesheet" href="classes/metric.css" />
+
+<style>
+:root,
+body {
+    overflow: auto;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    grid-auto-rows: 20vw;
+    gap: 1rem;
+    margin: 1rem;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+body > .test-block {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.test-block {
+    overflow: auto;
+    perspective: 100vw;
+    perspective-origin: 50% 50%;
+}
+/*
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+*/
+* {
+    transform-origin: 0 0;
+}
+
+img {
+    background-color: rgba(0,0,0,0.1);
+}
+</style>
+
+
+
+<h2 style="grid-column: 1 / span 4;">WTF causes scrollbars?</h2>
+
+<div class="test-block block">
+    <img class="pill-img" src="images/stack-button/1.png" />
+</div>
+
+<div class="test-block block">
+    <p>Anything with a natural size < scroll size, scaled to > scroll size causes scrollbars.</p>
+    <img class="pill-img" src="images/stack-button/1.png" style="width: 5rem; transform: scale(10);" />
+</div>
+
+<div class="test-block block">
+    <p>Anything with a natural size > scroll size causes scrollbars, even after scaling down.</p>
+    <img src="images/stack-button/1.png" style="width: 50rem; transform: scale(0.1);" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: scale(1);" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 0.5rem; transform: scale(10);" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 0.0625rem; transform: scale(80);" />
+</div>
+
+<div class="test-block block">
+    <p>Anything with a natural size < 1px scales as if they were 1px, and seems vulnerable to clipping in Safari.</p>
+    <img src="images/stack-button/1.png" style="width: 0.05rem; transform: scale(100);" />
+</div>
+
+<div class="test-block block">
+    <p>Extreme values are clipped entirely in Safari.</p>
+    <img src="images/stack-button/1.png" style="width: 0.005rem; transform: scale(1000);" />
+</div>
+
+
+
+
+<h2 style="grid-column: 1 / span 4;">Can these be seen?</h2>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 50rem;" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 5rem;" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 0.5rem;" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 0.05rem;" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 0.005rem;" />
+</div>
+
+
+
+
+<h2 style="grid-column: 1 / span 4;"></h2>
+
+<div class="test-block block">
+    <p>Natural size</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: translate3d(0,0,0);" />
+</div>
+
+<div class="test-block block">
+    <p>Half the size</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: translate3d(0,0,-100vw);" />
+</div>
+
+<div class="test-block block">
+    <p>Half the size again</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: translate3d(0,0,-300vw);" />
+</div>
+
+<div class="test-block block">
+    <p>Half the size, scaled back up</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: translate3d(0,0,-100vw) scale(2);" />
+</div>
+
+<div class="test-block block">
+    <p>Scaled up, half the size</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: scale(2) translate3d(0,0,-100vw);" />
+</div>
+
+<div class="test-block block">
+    <p>1/32 the size, scaled back up, causes 32x scrolling</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: translate3d(0,0,-3100vw) scale3d(32,32,1);" />
+</div>
+
+<div class="test-block block">
+    <p>Scaled up, 1/32the size, also causes 32x scrolling</p>
+    <img src="images/stack-button/1.png" style="width: 5rem; transform: scale3d(32,32,1) translate3d(0,0,-3100vw);" />
+</div>
+
+<div class="test-block block">
+    <p>If you translate it out of top left first you can avoid scrolling bigger than the thing</p>
+    <img src="images/stack-button/1.png" style="width: 100%; transform: translate3d(-100%, -100%, 0) scale3d(2, 2, 1) translate3d(50%, 50%, 0);" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 100%; transform: translate3d(-100%, -100%, -100vw);" />
+    <p>If you translate it out of top left first you can avoid scrolling bigger than the thing If you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thingIf you translate it out of top left first you can avoid scrolling bigger than the thing</p>
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, -100vw);" />
+</div>
+
+<div class="test-block block">
+    <img src="images/stack-button/1.png" style="width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, -100vw) scale3d(2,2,1);" />
+</div>
+
+
+
+
+<h2 style="grid-column: 1 / span 4;">Origins</h2>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, -100vw);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, -100vw) scale3d(2,2,1);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <!--img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, -100vw) scale3d(2,2,1) translate3d(50%, 50%, 0);" /-->
+    <!--img src="images/stack-button/2.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 100% 100%; transform: translate3d(-100%, -100%, -300vw) scale3d(4,4,1) translate3d(25%, 25%, 0);" /-->
+    <img src="images/stack-button/3.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(-100%, -100%, -700vw) scale3d(8,8,1) translate3d(-75%, -75%, 0);" />
+</div>
+
+
+
+
+<div></div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 50% 50%; transform: translate3d(0%, 0%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 50% 50%; transform: translate3d(0%, 0%, -100vw);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 50% 50%; transform: translate3d(0%, 0%, -100vw) scale3d(2, 2, 1);" />
+</div>
+
+
+
+
+<h2 style="grid-column: 1 / span 4;">Tings</h2>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="6">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, -700vw) scale3d(8, 8, 1) translate3d(-87.5%, -87.5%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="5">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, -300vw) scale3d(4, 4, 1) translate3d(-75%, -75%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="4">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, -100vw) scale3d(2, 2, 1) translate3d(-50%, -50%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="3-ORIGIN-LAYER">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) translate3d(-0%, -0%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="2">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, 50vw) scale3d(0.5, 0.5, 1) translate3d(100%, 100%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="1">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, 75vw) scale3d(0.25, 0.25, 1) translate3d(300%, 300%, 0);" />
+</div>
+
+
+
+<h2 style="grid-column: 1 / span 4;">Drops</h2>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="6">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(-700%, -700%, -700vw) scale3d(8, 8, 1);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="5">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(-300%, -300%, -300vw) scale3d(4, 4, 1);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="4">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(-100%, -100%, -100vw) scale3d(2, 2, 1);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="3-ORIGIN-LAYER">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) translate3d(-0%, -0%, 0);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="2">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(50%, 50%, 50vw) scale3d(0.5, 0.5, 1);" />
+</div>
+
+<div class="test-block block" style="perspective-origin: 100% 100%;" id="1">
+    <img src="images/stack-button/1.png" style="position: absolute; top: 0; left: 0; width: 100%; transform-origin: 0% 0%; transform: translate3d(75%, 75%, 75vw) scale3d(0.25, 0.25, 1);" />
+</div>
+
+
+
+<h2 style="grid-column: 1 / span 4;">Drops</h2>
+
+<style>
+    .view-block {
+        /* z distance from viewer to screen */
+        --perspective: 100;
+
+        overflow: auto;
+        perspective: calc(1vw * var(--perspective));
+        perspective-origin: 100% 100%;
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    .z-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10%;
+        height: 100%;
+        transform-origin: 0% 0%;
+        transform:
+            translate3d(
+                calc(1%  * (var(--perspective) - var(--distance))),
+                calc(1%  * (var(--perspective) - var(--distance))),
+                calc(1vw * (var(--perspective) - var(--distance)))
+            )
+            /*scale3d(
+                calc(var(--distance) / var(--perspective)),
+                calc(var(--distance) / var(--perspective)),
+                1
+            )*/;
+    }
+</style>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 800;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 400;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 200;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 100;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 50;" />
+</div>
+
+<div class="view-block block">
+    <img src="images/stack-button/1.png" class="z-layer" style="--distance: 25;" />
+</div>
+
+
+
+
+
+
+
+<h2 style="grid-column: 1 / span 4;">Drops</h2>
+
+<div class="test-block block" style="perspective-origin: 100% 100%; width: 900px; height: 300px;">
+    <img src="images/drops/5.png" style="position: absolute; top: 0; left: 0; width: 1200px;                transform-origin: 0% 0%; transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1.04vw) translate3d(-0%, -0%, 0);" />
+    <img src="images/drops/6.png" style="position: absolute; top: 0; left: 0; width: 1200px; height: 400px; transform-origin: 0% 0%; transform: translate3d(0%, 0%, 0) scale3d(1, 1, 1) translate3d(-0%, -0%, 0);" />
+</div>
